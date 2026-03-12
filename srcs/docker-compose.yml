@@ -1,0 +1,16 @@
+services:
+  wordpress:
+    networks:
+    volumes:
+      -
+  mariadb:
+    networks:
+    volumes:
+      -
+  nginx:
+    networks:
+    -
+
+volumes:
+
+networks:

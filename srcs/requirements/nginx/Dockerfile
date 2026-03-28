@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/28 20:01:34 by meghribe          #+#    #+#              #
-#    Updated: 2026/03/28 20:09:04 by meghribe         ###   ########.fr        #
+#    Updated: 2026/03/28 20:44:31 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,3 +16,5 @@ RUN apk add --no-cache bash
 WORKDIR /app
 COPY nginx-install.sh .
 RUN chmod +x nginx-install.sh
+SHELL ["/bin/bash", "-c"]
+CMD ./nginx-install.sh

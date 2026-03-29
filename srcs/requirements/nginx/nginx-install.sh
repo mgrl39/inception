@@ -16,7 +16,7 @@
 # font: https://nginx.org/en/linux_packages.html#Alpine
 
 echo ' installing the prerequisites'
-sudo apk add openssl curl ca-certificates
+apk add openssl curl ca-certificates
 
 echo ' setting up the apk repository for stable nginx packages '
 printf "%s%s%s%s\n" \
@@ -24,13 +24,16 @@ printf "%s%s%s%s\n" \
     "https://nginx.org/packages/alpine/v" \
     `egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release` \
     "/main" \
-    | sudo tee -a /etc/apk/repositories
+    | tee -a /etc/apk/repositories
 
 echo ' fetching the original signing key '
 curl -o /tmp/nginx_signing.rsa.pub https://nginx.org/keys/nginx_signing.rsa.pub
 
 echo ' moving key to apk trusted keys storage '
-sudo mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/
+mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/
 
 echo ' installing nginx '
-sudo apk add nginx@nginx
+apk add nginx@nginx
+
+exec "/usr/sbin/nginx -g daemon off"
+

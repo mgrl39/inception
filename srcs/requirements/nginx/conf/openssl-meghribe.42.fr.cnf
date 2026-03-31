@@ -1,0 +1,24 @@
+[req]
+default_bits       = 2048
+prompt             = no
+default_md         = sha256
+req_extensions     = req_ext
+distinguished_name = dn
+
+[dn]
+C=ES
+ST=Catalunya
+L=Barcelona
+O=42Barcelona
+OU=meghribe's Inception
+CN = localhost
+
+[req_ext]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = meghribe.42.fr 
+
+[ext]
+subjectAltName = @alt_names
+

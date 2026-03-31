@@ -9,3 +9,6 @@ run: build
 fclean:
 	docker container prune -f
 	docker image prune -f
+
+exec:
+	docker exec -it nginx /bin/bash

@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/28 19:53:01 by meghribe          #+#    #+#              #
-#    Updated: 2026/03/28 20:48:16 by meghribe         ###   ########.fr        #
+#    Updated: 2026/03/31 17:29:50 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,3 +34,5 @@ services:
     networks:
       - inception
 
+volumes:
+  mariadb_volume:

@@ -35,5 +35,4 @@ mv /tmp/nginx_signing.rsa.pub /etc/apk/keys/
 echo ' installing nginx '
 apk add nginx@nginx
 
-exec "/usr/sbin/nginx -g daemon off"
-
+#exec "/usr/sbin/nginx -g daemon off"

@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/28 20:01:34 by meghribe          #+#    #+#              #
-#    Updated: 2026/03/31 18:49:24 by meghribe         ###   ########.fr        #
+#    Updated: 2026/04/01 17:34:47 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,4 +27,5 @@ RUN chmod +x ./nginx-ssl.sh
 RUN ./nginx-install.sh
 RUN ./nginx-ssl.sh
 EXPOSE 80/tcp
+EXPOSE 443/tcp
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

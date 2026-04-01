@@ -4,7 +4,7 @@ build:
 
 # port forwarding -> computer:container
 run: build
-	docker run -p 4234:80 -d --name nginx nginx
+	docker run -p 8080:80 -p 4433:443 -d --name nginx nginx
 
 fclean:
 	docker container prune -f

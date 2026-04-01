@@ -18,11 +18,18 @@ INFOLDER=.
 OUTFOLDER=certs
 HOST=openssl-meghribe.42.fr
 
+mkdir certs
+
 openssl req -x509 -nodes -days 365 \
  -newkey rsa:2048 \
- -keyout $OUTFOLDER/$HOST.key \
+ -keyout $OUTFOLDER/$HOST.crt.key \
  -out $OUTFOLDER/$HOST.crt \
  -config $INFOLDER/$HOST.cnf \
  -extensions ext
 
+cp $OUTFOLDER/$HOST.crt /etc/ssl/$HOST.crt
+cp $OUTFOLDER/$HOST.crt.key /etc/ssl/$HOST.crt.key
 cp nginx-meghribe.42.fr.conf /etc/nginx/conf.d
+# Nginx needs read access
+chmod 664 /etc/ssl/$HOST.crt
+chmod 600 /etc/ssl/$HOST.crt.key

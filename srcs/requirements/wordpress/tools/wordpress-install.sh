@@ -1,24 +1,17 @@
+#!/bin/bash
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Dockerfile                                         :+:      :+:    :+:    #
+#    wordpress-install.sh                               :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/04/01 18:09:04 by meghribe          #+#    #+#              #
-#    Updated: 2026/04/01 18:12:29 by meghribe         ###   ########.fr        #
+#    Created: 2026/04/01 18:14:30 by meghribe          #+#    #+#              #
+#    Updated: 2026/04/01 18:14:30 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# TODO: change this. Cannot be the last one.
-FROM alpine:latest
-RUN apk add --no-cache bash
-
-WORKDIR /app
-COPY /tools .
-
-SHELL ["/bin/bash", "-c"]
-RUN chmod +x ./wordpress-install.sh
-
-RUN ./wordpress-install.sh
-EXPOSE 9000/tcp
+apk add --no-cache php-fpm
+wget https://wordpress.org/latest.zip
+unzip latest.zip
+cd wordpress

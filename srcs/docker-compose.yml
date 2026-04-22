@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/28 19:53:01 by meghribe          #+#    #+#              #
-#    Updated: 2026/03/31 17:29:50 by meghribe         ###   ########.fr        #
+#    Updated: 2026/04/22 11:42:21 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,24 +15,37 @@ services:
   nginx:
     build: ./requirements/nginx
     container_name: nginx
-    ports:
-      - "443:443"
     networks:
       - inception
+    ports:
+      - "443:443"
 
   wordpress:
     build: ./requirements/wordpress
-    ports:
-      - "9000:9000"
+    container_name: wordpress
     networks:
       - inception
+    ports:
+      - "9000:9000"
+    volumes:
+      - wordpress_volume:/CHANGETEHISROUTE
 
   mariadb:
     build: ./requirements/mariadb
-    ports:
-      - "3306:3306"
+    container_name: mariadb
     networks:
       - inception
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_volume:/CHANGETEHISROUTE
 
 volumes:
   mariadb_volume:
+  wordpress_volume:
+
+# https://docs.docker.com/compose/how-tos/networking/
+networks:
+  inception:
+    driver: bridge
+

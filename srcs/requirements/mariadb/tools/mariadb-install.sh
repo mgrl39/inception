@@ -11,5 +11,6 @@
 #                                                                              #
 # **************************************************************************** #
 
+# https://linuxcapable.com/how-to-install-mariadb-debian-linux/
 apt update
-apt install mariadb mariadb-client
+apt install mariadb-server mariadb-client -y

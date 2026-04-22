@@ -11,4 +11,5 @@
 #                                                                              #
 # **************************************************************************** #
 
-apk add mariadb mariadb-client
+apt update
+apt install mariadb mariadb-client

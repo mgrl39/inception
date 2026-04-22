@@ -11,7 +11,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-apk add --no-cache php-fpm
+apt update
+apt install wget unzip -y
 wget https://wordpress.org/latest.zip
 unzip latest.zip
 cd wordpress

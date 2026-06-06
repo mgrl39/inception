@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/07 00:05:45 by meghribe          #+#    #+#              #
-#    Updated: 2026/06/07 00:05:45 by meghribe         ###   ########.fr        #
+#    Updated: 2026/06/07 00:34:27 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,5 +14,11 @@ volumes:
 
 services:
   nginx:
+    build:
+      dockerfile: nginx/Dockerfile
   mariadb:
+    build:
+      dockerfile: mariadb/Dockerfile
   wordpress:
+    build:
+      dockerfile: wordpress/Dockerfile

@@ -11,14 +11,20 @@
 # **************************************************************************** #
 
 volumes:
+  mariadb:
+  wordpress:
 
 services:
   nginx:
     build:
       dockerfile: nginx/Dockerfile
   mariadb:
+    volumes:
+      - mariadb:/./mariadb
     build:
       dockerfile: mariadb/Dockerfile
   wordpress:
+    volumes:
+      - wordpress:/./wordpress
     build:
       dockerfile: wordpress/Dockerfile
